@@ -5,7 +5,7 @@
     import { currentUser, pb } from "./pocketbase";
 
     let user_words = [{}];
-    let wordType;
+    let wordType = "";
 
     async function updateUserWords() {
         let resultList

@@ -73,10 +73,10 @@
 <h1 class="text-2xl text-center font-bold py-5">Words</h1>
 <nav class="flex space-x-4 justify-center text-l my-5 ">
     <ul class="flex space-x-6">
-      <li on:click={() => {changeType("all")}} class="inline-block"><a href="#" class="border-b-2" >All</a></li>
-      <li on:click={() => {changeType("adjectives")}} class="inline-block "><a href="#">Adjectives</a></li>
-      <li on:click={() => {changeType("nouns")}} class="inline-block "><a href="#">Nouns</a></li>
-      <li on:click={() => {changeType("verbs")}} class="inline-block "><a href="#">Verbs</a></li>
+      <li on:click={() => {changeType("all")}} class="inline-block"><a href="#" class="{wordsType === undefined ? 'border-b-2': ''}" >All</a></li>
+      <li on:click={() => {changeType("adjectives")}} class="inline-block " ><a href="#" class="{wordsType === "adjective" ? 'border-b-2': ''}">Adjectives</a></li>
+      <li on:click={() => {changeType("nouns")}} class="inline-block "><a href="#" class="{wordsType === "noun" ? 'border-b-2': ''}">Nouns</a></li>
+      <li on:click={() => {changeType("verbs")}} class="inline-block "><a href="#" class="{wordsType === "verb" ? 'border-b-2': ''}">Verbs</a></li>
     </ul>
   </nav>
 <table class="w-full border-collapse">
@@ -94,7 +94,7 @@
             <tr class=" bg-transparent">
                 <td class="text-center w-1/2">{word.bare}</td>
                 {#if $currentUser}
-                    <td class=" content-center flex items-center justify-center"><button class=" mx-auto text-center bg-green-500 text-white font-bold rounded-full px-1 left-2 w-8/12">Add</button></td>
+                    <td on:click={() => {addWord(word.id)}} class=" content-center flex items-center justify-center"><button class=" mx-auto text-center bg-green-500 text-white font-bold rounded-full px-1 left-2 w-8/12">Add</button></td>
                 {/if}
             </tr>
         {/each}
